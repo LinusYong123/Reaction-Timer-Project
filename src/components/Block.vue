@@ -17,7 +17,8 @@
     mounted() {
       // console.log('component mounted')
       setTimeout(() => {
-        this.showBlock = true
+        this.showBlock = true,
+        this.startTimer()
       }, this.delay)
     },
     methods: {
@@ -28,7 +29,8 @@
       },
       stopTimer() {
         clearInterval(this.timer)
-        console.log(this.reactionTime)
+        this.$emit('end', this.reactionTime)
+        // console.log(this.reactionTime)
       }
     }
   }
